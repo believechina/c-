@@ -1,0 +1,49 @@
+#include<iostream>
+#include<vector>
+using namespace std;
+int main(){
+	vector<int>a, b;
+	//vector初始化方式
+	//vector<int>a(10)
+	//vector<int>a(b)
+	//vector<int>a(b.begin(),b.end())
+	//vector<int>a(10,1)
+	//从数组中获得初值
+	//int b[5]={6,7,8,9,10}
+	//vector<int>a(b,b+3)
+	//vector内置函数的使用
+	for (int i=0; i < 20; i++)
+	{
+		b.push_back(i);
+	}
+	a.assign(b.begin(), b.begin() + 3);
+	vector<int>::iterator c = a.begin();
+	for (; c != a.end();c++){
+		cout << *c<<" ";
+	}
+	cout << endl;
+	a.back();//返回最后一个元素元素
+	a.front();//返回第一个元素
+	int p;
+	a[p];//返回第p个元素，当且仅当a存在时
+	a.empty();//判断a是否为空，为空就返回true，不为空就false
+	a.clear();//清空a中元素
+	a.pop_back();//删除a的最后一个元素
+	a.erase(a.begin() + 1, a.begin() + 3);
+	//删除[begin+1，begin+3）
+	a.push_back(5);
+	a.insert(a.begin() + 1, 5);//在a的一号位置插入一个5
+	a.insert(a.begin() + 1, 3, 5);//在a的一号位置插入 3个5
+	a.capacity();//返回a中可以容纳元素总数
+	a.size();//返回a中元素个数
+	a.resize(10);//将a中元素调整至十个，多则消减，少则补a.resize(10,(可指定值))
+	a.reserve(100);//将a的容量扩张至100；
+	/*常见的几个算法
+	#include<algorithm>
+	sort(a.begin(),a.end());//对[begin,end)进行从小到大的排列
+	reverse(a.begin(),a.end());//对[begin，end）进行倒置
+	find（a.begin(),a.end(),10）//从[begin,end)查找10，找到就返回10所在的位置
+	*/
+	system("pause");
+	return 0;
+}
